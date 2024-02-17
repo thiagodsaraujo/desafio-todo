@@ -19,6 +19,9 @@ public class Todo {
 
     private Integer prioridade;
 
+    public Todo(String s, String s1, boolean b, int i) {
+    }
+
     public Long getId() {
         return id;
     }
