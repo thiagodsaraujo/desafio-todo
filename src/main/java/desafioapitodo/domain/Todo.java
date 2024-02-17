@@ -1,6 +1,8 @@
 package desafioapitodo.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity(name = "todos")
 @Table(name = "todos")
@@ -11,13 +13,28 @@ public class Todo {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotNull(message = "Nome é obrigatório")
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
 
+    @NotNull(message = "Descrição é obrigatória")
+    @NotBlank(message = "Descrição é obrigatória")
     private String descricao;
 
     private boolean realizado;
 
+    @NotBlank(message = "Prioridade é obrigatória")
     private Integer prioridade;
+
+    public Todo(String nome, String descricao, boolean realizado, int prioridade) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.realizado = realizado;
+        this.prioridade = prioridade;
+    }
+
+    public Todo() {
+    }
 
     public Long getId() {
         return id;

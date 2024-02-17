@@ -2,6 +2,8 @@ package desafioapitodo.controller;
 
 import desafioapitodo.domain.Todo;
 import desafioapitodo.service.TodoService;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +19,8 @@ public class TodoController {
     }
 
     @PostMapping("/create")
-    List<Todo> create(Todo todo) {
-        return todoService.save(todo);
+    Todo create(@Valid Todo todo) {
+        return (Todo) todoService.save(todo);
     }
 
     @GetMapping("/read")
