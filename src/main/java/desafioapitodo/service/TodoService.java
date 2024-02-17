@@ -26,9 +26,9 @@ public class TodoService {
 
     // a Lógica é sempre retornar a lista de todos após as operações, pensando na atualização da lista na tela
 
-    public Todo save(Todo todo) {
+    public List<Todo> save(Todo todo) {
         todoRepository.save(todo);
-        return todo;
+        return list();
     }
 
     public List<Todo> update(Todo todo) {
